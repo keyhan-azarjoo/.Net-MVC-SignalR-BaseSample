@@ -33,12 +33,12 @@ namespace SignalRSample.Hubs
         }
 
 
-        public async Task<String> NewWindowLoadedByInvoke()
+        public async Task<String> NewWindowLoadedByInvoke(string name)
         {
             TotalViews++;
             //send update to all clients that total views have been updated
             await Clients.All.SendAsync("updateTotalViews", TotalViews); // this function send a message to all clients. it invoke the updateTotalViews in client side
-            return $"total views -{TotalViews}"; // This function is called when client use invoke and it return a string to the sender.
+            return $"total views from {name} - {TotalViews}"; // This function is called when client use invoke and it return a string to the sender.
         }
 
 

@@ -37,7 +37,9 @@ function newWindowLoadedOnClient() {
 // in the invoke, you are expected to get a return
 function newWindowLoadedOnClientinvoke() {
 
-    connectionUserCount.invoke("NewWindowLoadedByInvoke").then((value) => console.log(value)); // but in the invoke, you are expected to get a return
+    connectionUserCount.invoke("NewWindowLoadedByInvoke", "keyhan").then((value) => console.log(value)); // but in the invoke, you are expected to get a return
+    // in this example, we are logging the result in console
+    // you can send a parameter like keyhan az well. you can send more parameters
 }
 
 
