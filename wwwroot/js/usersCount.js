@@ -5,7 +5,9 @@
 
 // Create connection
 // For connecting Client to server you need to create a connection like here
-var connectionUserCount = new signalR.HubConnectionBuilder().withUrl("/hubs/userCount", signalR.HttpTransportType.WebSockets).build();
+var connectionUserCount = new signalR.HubConnectionBuilder()
+    //.configureLogging(signalR.LogLevel.Trace) // you can use different logging system to debug
+    .withUrl("/hubs/userCount", signalR.HttpTransportType.WebSockets).build();
 // the transport type is WebSockets by defult
 // you can change the connection protecol here
 
