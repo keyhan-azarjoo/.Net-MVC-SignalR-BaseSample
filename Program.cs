@@ -53,5 +53,6 @@ app.MapRazorPages();
 
 // We need to use this code as well.
 app.MapHub<UserHub>("/hubs/userCount");
+app.MapHub<DeathlyHallowsHub>("/hubs/deathlyhallows");
 
 app.Run();

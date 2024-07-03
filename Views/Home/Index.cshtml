@@ -3,6 +3,29 @@
 }
 
 <div class="container">
+    <div class="raw border p-1">
+
+        <h3> Deathly Hallow Race</h3>
+        <div class="col-4">
+            <div> Invisibility Cloak - <span id="cloakCounter"></span> </div>
+        </div>
+        <div class="col-4">
+            <div> Resurrection Stone - <span id="stoneCounter"></span> </div>
+        </div>
+        <div class="col-4">
+            <div> Elder Wand - <span id="wandCounter"></span> </div>
+        </div>
+
+    </div>
+
+    <hr />
+
+    <p>URL To Vote</p>
+    <div>1. Cloak - https://localhost:7050/Home/DeathlyHallows?type=cloak </div>
+    <div>2. Stone - https://localhost:7050/Home/DeathlyHallows?type=stone </div>
+    <div>3. Wand  - https://localhost:7050/Home/DeathlyHallows?type=wand </div>
+
+
     <div class="row">
         <div class="col-3">Total Views: </div>
         <div class="col-4">
@@ -21,3 +44,4 @@
 @* We use the signalR and our own js file *@
 <script src="~/js/signalr.js"></script>
 <script src="~/js/usersCount.js"></script>
+<script src="~/js/deathlyHallows.js"></script>
