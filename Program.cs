@@ -14,6 +14,11 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+
+
+// in the server side we need to add signalR in Program.cs
+// We need to install it in Nuget Package Managment as well
 builder.Services.AddSignalR();
 
 
@@ -44,6 +49,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+
+// We need to use this code as well.
 app.MapHub<UserHub>("/hubs/userCount");
 
 app.Run();

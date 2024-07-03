@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+// Server Side
+
 
 namespace SignalRSample.Hubs
 {
@@ -7,7 +9,7 @@ namespace SignalRSample.Hubs
         public static int TotalViews { get; set; } = 0;
         public static int TotalUsers { get; set; } = 0;
 
-
+        // This functions can be called by clients
         public override Task OnConnectedAsync()
         {
             TotalUsers++;
@@ -18,7 +20,7 @@ namespace SignalRSample.Hubs
         public override Task OnDisconnectedAsync(Exception? exception)
         {
             TotalUsers--;
-            Clients.All.SendAsync("updateTotalUsers", TotalUsers).GetAwaiter().GetResult();
+            Clients.All.SendAsync("updateTotalUsers", TotalUsers).GetAwaiter().GetResult(); // as this function is not async, we used GetAwaitor and GetResult to wait for the result.
             return base.OnDisconnectedAsync(exception);
         }
 
