@@ -26,19 +26,27 @@ connectionUserCount.on("updateTotalUsers", (value) => {
 
 
 
-// invoke hub methods aka send notification to hub
+// send hub methods aka send notification to hub
 // in the case that we want to send a message to server we can use this method to call the NewWindowLoaded function.
 function newWindowLoadedOnClient() {
-    connectionUserCount.send("NewWindowLoaded")
+    connectionUserCount.send("NewWindowLoaded"); // in the send, you won't wait for a responce
+
 }
 
+
+// in the invoke, you are expected to get a return
+function newWindowLoadedOnClientinvoke() {
+
+    connectionUserCount.invoke("NewWindowLoadedByInvoke").then((value) => console.log(value)); // but in the invoke, you are expected to get a return
+}
 
 
 // start connection
 function fulfilled() {
     // do something on start
     console.log("Connection to user Hub successful");
-    newWindowLoadedOnClient();
+    //newWindowLoadedOnClient();
+    newWindowLoadedOnClientinvoke();
 }
 
 function rejected() {

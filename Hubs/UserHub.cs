@@ -32,6 +32,16 @@ namespace SignalRSample.Hubs
             await Clients.All.SendAsync("updateTotalViews", TotalViews); // this function send a message to all clients. it invoke the updateTotalViews in client side
         }
 
+
+        public async Task<String> NewWindowLoadedByInvoke()
+        {
+            TotalViews++;
+            //send update to all clients that total views have been updated
+            await Clients.All.SendAsync("updateTotalViews", TotalViews); // this function send a message to all clients. it invoke the updateTotalViews in client side
+            return $"total views -{TotalViews}"; // This function is called when client use invoke and it return a string to the sender.
+        }
+
+
         // In the case client send a message and want the responce to all client inclouding it sellf
         // A <=====> Server
         // B <------ Server
@@ -109,7 +119,7 @@ namespace SignalRSample.Hubs
         // sam@gmail.com D         Server
         // don@gmail.com E <------ Server
         // don@gmail.com F <------ Server
-        
+
         // await Clients.Users("ben@gmail.com","don@gmail.com").SendAsync("ReceiveMessage", user, message) // in this case server send a message to two users and all of their open tabs.// you can use userId(email) and connection Id
 
 
