@@ -2,6 +2,10 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+
+
+
 <div class="container">
     <div class="raw border p-1">
 
@@ -26,6 +30,26 @@
     <div>3. Wand  - https://localhost:7050/Home/DeathlyHallows?type=wand </div>
 
 
+    <hr />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>Connection Counter</p>
+
     <div class="row">
         <div class="col-3">Total Views: </div>
         <div class="col-4">
@@ -38,10 +62,44 @@
             <span id="totalUsersCounter"></span>
         </div>
     </div>
+
+
+
+
+    <hr />
+
+
+
+
+
+
+    <p>Messaging Service</p>
+    <textarea name="message" id="message"></textarea>
+    <select id="group">
+        <option value="All">EveryOne</option>
+        <option value="MySelf">MySelf</option>
+    </select>
+    <input type="button" id="sendbutton" value="Send Message" />
+
+    <div id="messages"></div>
+
+
+
+
+
+    <div>
+
+    </div>
+
+
+
+
+
 </div>
 
 
 @* We use the signalR and our own js file *@
 <script src="~/js/signalr.js"></script>
-<script src="~/js/usersCount.js"></script>
 <script src="~/js/deathlyHallows.js"></script>
+<script src="~/js/usersCount.js"></script>
+<script src="~/js/Messages.js"></script>
