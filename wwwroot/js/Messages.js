@@ -56,13 +56,22 @@ document.getElementById("sendbutton").addEventListener("click", function (event)
         connectionMessagingService.invoke(method, message).catch(function (err) {
             return console.error(err.message.tostring());
         });
-
+    } else if (groupvalue == "PrivateGroup") { 
+        connectionMessagingService.invoke("SendMessageToGroup", "PrivateGroup", message).catch(function (err) {
+            return console.error(err.message.tostring());
+        });
     } else {
-        connection.invoke("SendMessageToUser", groupvalue, message).catch(function (err) {
+        connectionMessagingService.invoke("SendMessageToUser", groupvalue, message).catch(function (err) {
             return console.error(err.message.tostring());
         });
     }
-    
-    event.preventDefault();
-})
 
+    event.preventDefault();
+});
+
+document.getElementById("joinGroup").addEventListener("click", function (event) {
+    connectionMessagingService.invoke("JoinGroup", "PrivateGroup").catch(function (err) {
+        return console.error(err.toString());
+    });
+    event.preventDefault();
+});
